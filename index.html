@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notcoin Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="exit-button">❌</div>
+            <div class="app-title">Catcoin</div>
+            <div class="menu-button">☰</div>
+        </div>
+        <div class="header">
+            <div class="wallet-news">
+                <img src="wallet-icon.png" alt="Wallet Icon" class="wallet-icon">
+                <div class="wallet-details">
+                    <div class="wallet-balance">Wallet News</div>
+                    <div class="wallet-rank">
+                        <span class="wallet-rank-text" id="wallet-rank">Diamond</span>
+                        <span class="trophy">🏆</span>
+                    </div>
+                </div>
+            </div>
+            <div class="coin-info">
+                <div class="coin-count" id="coin-count">🐱‍👓15,134,500</div>
+                <div class="rank">
+                    <span id="rank">Diamond</span>
+                    <span class="trophy">🏆</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-coin">
+            <img src="coin.png" alt="Coin Image" class="coin-large" id="main-coin-large">
+        </div>
+        <div class="energy-bar">
+            <span class="energy-text" id="energy-text">⚡ 5106</span>
+            <div class="energy" id="energy"></div>
+        </div>
+        <div class="menu">
+            <div class="menu-item" id="frens">🎁 Frens</div>
+            <div class="menu-item" id="earn">🥇 Earn</div>
+            <div class="menu-item" id="boosts">🚀 Boosts</div>
+            <div class="menu-item" id="trade">✨ Trade</div>
+        </div>
+    </div>
+
+    <!-- Boost Menu Modal -->
+    <div class="modal" id="boost-modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-boosts">×</span>
+            <h2>Boosts</h2>
+            <div class="boost-item">
+                <span class="boost-name">Double Coins</span>
+                <button class="buy-button" id="buy-double-coins">Buy for 1000 coins</button>
+            </div>
+            <div class="boost-item">
+                <span class="boost-name">Energy Regen Boost</span>
+                <button class="buy-button" id="buy-energy-regen">Buy for 2000 coins</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
