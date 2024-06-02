@@ -10,7 +10,7 @@ const rankElem = document.getElementById('rank');
 const mainCoin = document.getElementById('main-coin-large');
 const boostModal = document.getElementById('boost-modal');
 const boostsButton = document.getElementById('boosts');
-const closeBoostsButton = document.getElementById('close-boosts');
+const closeBoostsButton = document.getElementById('close-boosts'); 
 
 function updateDisplay() {
     coinCountElem.textContent = balance.toLocaleString();
@@ -30,24 +30,26 @@ function updateDisplay() {
     }
 }
 
-function buyNotcoin() {
+function buyNotcoin(event) {
     if (energy > 0) {
         balance += doubleCoins ? 2 : 1;
         energy--;
         updateDisplay();
-        showClickNumber(doubleCoins ? 2 : 1);
+        showClickNumber(event, doubleCoins ? 2 : 1);
     } else {
         alert('Not enough energy to buy Notcoin!');
     }
 }
 
-function showClickNumber(amount) {
+function showClickNumber(event, amount) {
     const clickNumber = document.createElement('div');
     clickNumber.textContent = `+${amount}`;
     clickNumber.classList.add('click-number');
-    mainCoin.appendChild(clickNumber);
+    clickNumber.style.left = `${event.clientX}px`;
+    clickNumber.style.top = `${event.clientY}px`;
+    document.body.appendChild(clickNumber);
     setTimeout(() => {
-        mainCoin.removeChild(clickNumber);
+        document.body.removeChild(clickNumber);
     }, 1000);
     saveData();
 }
@@ -74,8 +76,8 @@ function loadData() {
     updateDisplay();
 }
 
-mainCoin.addEventListener('click', () => {
-    buyNotcoin();
+mainCoin.addEventListener('click', (event) => {
+    buyNotcoin(event);
     mainCoin.style.transform = 'scale(0.9)';
     setTimeout(() => {
         mainCoin.style.transform = 'scale(1)';

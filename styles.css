@@ -119,6 +119,11 @@ body {
     height: auto;
     cursor: pointer;
     transition: transform 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .coin-large:active {
@@ -254,4 +259,5 @@ body {
     font-size: 1.5em;
     color: #fff;
     animation: clickEffect 1s ease-out;
+    pointer-events: none;
 }
