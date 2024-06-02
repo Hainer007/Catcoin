@@ -3,6 +3,7 @@ let energy = 1000;
 const maxEnergy = 1000;
 let doubleCoins = false;
 let energyRegenBoost = false;
+
 const coinCountElem = document.getElementById('coin-count');
 const energyElem = document.getElementById('energy');
 const energyTextElem = document.getElementById('energy-text');
@@ -37,7 +38,7 @@ function buyNotcoin(event) {
         updateDisplay();
         showClickNumber(event, doubleCoins ? 2 : 1);
     } else {
-        alert('Not enough energy to buy Notcoin!');
+        showSnackbar('Not enough energy to buy Notcoin!');
     }
 }
 
@@ -59,6 +60,15 @@ function regenEnergy() {
         energy += energyRegenBoost ? 2 : 1;
         updateDisplay();
     }
+}
+
+function showSnackbar(message) {
+    const snackbar = document.getElementById('snackbar');
+    snackbar.textContent = message;
+    snackbar.className = 'show';
+    setTimeout(() => {
+        snackbar.className = snackbar.className.replace('show', '');
+    }, 3000);
 }
 
 function saveData() {
@@ -106,7 +116,7 @@ document.getElementById('buy-double-coins').addEventListener('click', () => {
         updateDisplay();
         boostModal.style.display = 'none';
     } else {
-        alert('Not enough coins to buy Double Coins boost!');
+        showSnackbar('Not enough coins to buy Double Coins boost!');
     }
 });
 
@@ -118,7 +128,7 @@ document.getElementById('buy-energy-regen').addEventListener('click', () => {
         updateDisplay();
         boostModal.style.display = 'none';
     } else {
-        alert('Not enough coins to buy Energy Regen Boost!');
+        showSnackbar('Not enough coins to buy Energy Regen Boost!');
     }
 });
 
